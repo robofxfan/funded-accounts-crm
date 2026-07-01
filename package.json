@@ -1,0 +1,35 @@
+{
+  "name": "funded-accounts-crm",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm run db:setup && next dev",
+    "build": "npx prisma generate && npx prisma db push && npx tsx prisma/seed.ts && next build",
+    "start": "next start",
+    "db:setup": "npx prisma db push && npx tsx prisma/seed.ts",
+    "db:studio": "npx prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.1.0",
+    "bcryptjs": "^2.4.3",
+    "lucide-react": "^0.468.0",
+    "next": "15.0.4",
+    "next-auth": "^5.0.0-beta.25",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "recharts": "^2.13.3"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.0.4",
+    "postcss": "^8",
+    "prisma": "^6.1.0",
+    "tailwindcss": "^3.4.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5"
+  }
+}
