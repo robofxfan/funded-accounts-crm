@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  password  String
+  role      String   @default("accountant")
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  accounts  FundedAccount[]
+}
+
+model FundedAccount {
+  id          String   @id @default(cuid())
+  traderName  String
+  firmName    String   @default("")
+  accountSize Float    @default(0)
+  equity      Float
+  profitPct   Float    @default(0)
+  month       Int
+  year        Int
+  status      String   @default("live")
+  notes       String   @default("")
+  createdBy   String?
+  creator     User?    @relation(fields: [createdBy], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
