@@ -1,0 +1,4 @@
+═══════════════════════════════════════════════════
+  FUNDED ACCOUNTS CRM — ONLINE DEPLOY GUIDE
+  (Vercel + Neon — dono free hain)
+═══════════════════════════════════════════════════
